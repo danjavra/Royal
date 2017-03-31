@@ -22,10 +22,10 @@
                 session_start();
                 $_SESSION["user"]=$username;
                 $tipo = getTipoUsuario($username);
-                if($tipo == 1){
+                if($tipo == 0){
                     //dirigimos al usuario a su homepage.
                     header("Location: UserHome.php");
-                }else if($tipo == 0){
+                }else if($tipo == 1){
                     //Dirigimos a la página de administrador
                     header("Location: AdminHome.php");
                 }else{
