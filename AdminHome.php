@@ -17,13 +17,13 @@
         }
         ?>
          <br/>
-            <a href="">Alta de cartas</a>
+           <a href="altacartas.php">Alta de cartas</a>
          <br/>
-            <a href="">Ranking mejores usuarios</a>
+           <a href="rankingUsuarios.php">Ranking mejores usuarios</a>
          <br/>
-            <a href="">Borrar un usuario</a>
+           <a href="borrarUsuarios.php">Borrar un usuario</a>
          <br/>
-            <a href="">Incorporar carta a un usuario</a>   
+         <a href="incorporarCartas.php">Incorporar carta a un usuario</a>   
          <br></br>
         <a href="royal.php">Inicio</a>
     </body>

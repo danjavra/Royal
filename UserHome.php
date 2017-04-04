@@ -17,11 +17,11 @@
         }
         ?>
          <br/>
-            <a href="">Modificar password</a>
+           <a href="modpassword.php">Modificar password</a>
          <br/>
-            <a href="">Ver perfil</a>
+           <a href="verperfil.php">Ver perfil</a>
          <br/>
-            <a href="">Batalla</a>
+           <a href="batalla.php">Batalla</a>
          <br></br>
         <a href="royal.php">Inicio</a>
     </body>
