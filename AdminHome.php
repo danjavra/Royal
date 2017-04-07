@@ -23,7 +23,13 @@
          <br/>
            <a href="borrarUsuarios.php">Borrar un usuario</a>
          <br/>
-         <a href="incorporarCartas.php">Incorporar carta a un usuario</a>   
+         <a href="incorporarCartas.php">Incorporar carta a un usuario</a> 
+         <br/>
+           <a href="modpassword.php">Modificar password</a>
+         <br/>
+           <a href="verperfil.php">Ver perfil</a>
+         <br/>
+           <a href="batalla.php">Batalla</a>
          <br></br>
         <a href="royal.php">Inicio</a>
     </body>
