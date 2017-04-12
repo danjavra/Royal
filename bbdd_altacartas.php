@@ -1,8 +1,28 @@
 <?php
+require_once 'bbdd_royal.php';
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+function ExisteCarta($cartas){
+     $conectar = conectar("royal");
+    $select = "select * from card where name='$cartas'";
+     $resultado = mysqli_query($conectar, $select);
+     $contador = mysqli_num_rows($resultado);
+    desconectar($conectar);
+   if($contador==0){
+       return false;
+   }
+   else{
+       return true;
+   }
+}
 
+function altaCartas($nombre, $tipo, $calidad, $vida, $damage, $elixir){
+    $conectar = conectar("royal");
+    $insert = "insert into card value('$nombre','$tipo','$calidad','$vida','$damage','$elixir')";
+   if(mysqli_query($conectar, $insert)){
+       echo"<p>Se ha dado de alta la carta $nombre</p>";
+   }
+   else{
+       echo mysqli_error($conectar);
+   }
+   desconectar($conectar);
+}

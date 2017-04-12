@@ -14,11 +14,12 @@
         if(isset($_SESSION["user"])){
         // cogemos la variable de sesión y saludamos al usuario
         $username = $_SESSION["user"];
-        echo"Hola $username";
+        echo"¡Hola $username!<br>";
+        echo"========================";
        
         require_once 'bbdd_altacartas.php';
 
-if (isset($_POST['altacaratas'])){
+if (isset($_POST['altacartas'])){
     
     $nombre = $_POST['name'];
     $tipo = $_POST['type'];
@@ -26,23 +27,43 @@ if (isset($_POST['altacaratas'])){
     $vida = $_POST['hitpoints'];
     $damage = $_POST['damage'];
     $elixir = $_POST['cost'];
-    
-   altaCartas($nombre, $tipo, $calidad, $vida, $damage, $elixir);     
+    if(ExisteCarta($nombre)== true){
+                echo"<br>";
+                echo"¡Carta repetida, ya existe esta carta!<br></br>";
+                echo"<a href='altacartas.php'>Volver atrás</a><br></br>";
+    }
+    altaCartas($nombre, $tipo, $calidad, $vida, $damage, $elixir);
+   echo"<a href='altacartas.php'>Volver atrás</a><br></br>";
+
 }else{
    echo"<form ation=' ' method='POST'>"; 
-   echo" Nombre: <input required type='text' name='nombre'><br></br>";
-   echo" Tipo: <select name='type'>";
-    echo"<option value=' '></option>
    
-  <option value="Apple">Apple</option>
-  <option value="Sony">Sony</option>
-  <option value="Samsung">Samsung</option>
-  <option value="Huawei">Huawei</option>";
+   echo" Nombre: <input required type='text' name='name'><br></br>";
+   echo" Tipo: <select name='type' required>";
+   echo"<option value=' '></option>
+  <option value='tropa'>Tropa</option>
+  <option value='hechizo'>Hechizo</option>
+  <option value='estructura'>Estructura</option>";
     echo"</option>";
-}
-echo"</select><br></br>";
-echo"<input type='submit' name='altapokemon' value='Alta'>";
+   echo"</select><br></br>";
+   echo" Calidad: <select name='rarity' required>";
+   echo"<option value=' '></option>
+  <option value='comun'>Común</option>
+  <option value='especial'>Especial</option>
+  <option value='epica'>Épica</option>
+  <option value='legendaria'>Legendária</option>";
+    echo"</option>";
+   echo"</select><br></br>";
+   echo" Vida: <input required type='number' name='hitpoints' min='0' max='20'><br></br>";
+   echo" Daño: <input required type='number' name='damage' min='0' max='20'><br></br>";
+   echo" Elixir: <input required type='number' name='cost' min='0' max='10'><br></br>";
+   echo"<input type='submit' name='altacartas' value='Alta'>";
 echo"</form>";
 echo"</br>";
 }
 }
+
+?>
+ <br/>
+       <a href="AdminHome.php">Volver a la página del administrador</a>
+

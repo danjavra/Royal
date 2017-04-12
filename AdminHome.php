@@ -11,7 +11,8 @@
         if(isset($_SESSION["user"])){
         // cogemos la variable de sesión y saludamos al usuario
         $username = $_SESSION["user"];
-        echo"Hola $username";
+        echo"¡Hola $username!<br>";
+        echo"========================";
         }else{
             echo"No estás autentificado.";
         }

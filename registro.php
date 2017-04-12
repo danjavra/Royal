@@ -32,6 +32,9 @@
                 if($pass==$cpass){
                 //Registramos el usuario en la bbdd
                 insertUser($nusuario, $pass, $type, $wins, $level, $cpass);
+                session_start();
+                $_SESSION["nombre"]=$nusuario;
+                header("Location: cofres.php ");
                 }if($pass!=$cpass){
                 echo"Error: La confirmación de la contraseña y la contraseña són diferentes.<br>";
             }
