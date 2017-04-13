@@ -9,14 +9,13 @@
 
 <?php
 require_once'bbdd_cofres.php';
- session_start();
+session_start();
         //Nos aseguramos de que haya un usuario autentificado
-        if(isset($_SESSION["nombre"])){
+        if(isset($_SESSION["user"])){
         // cogemos la variable de sesión y saludamos al usuario
-        $username = $_SESSION["nombre"];
+        $username = $_SESSION["user"];
         echo"¡Hola $username!<br>";
         echo"========================";
-        
         
          $numeroCartas=numCartas();
  
@@ -69,11 +68,19 @@ require_once'bbdd_cofres.php';
                
            }
        }
-       
+             $tipo = getTipoUsuario($username);
+                if($tipo == 0){
+                    //dirigimos al usuario a su homepage.
+                    echo"<br><br><a href='UserHome.php'>Volver al menú</a>";
+                    
+                }else if($tipo == 1){
+                    //Dirigimos a la página de administrador
+                    echo"<br><br><a href='AdminHome.php'>Volver al menú</a>";
+                }
         } 
         ?>
        
-       <br/>
-       <a href="login.php">Volver a la página de inicio</a>
+       
+      
   </body>
 </html>

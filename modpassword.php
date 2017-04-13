@@ -52,8 +52,16 @@
         }else{
             echo"No estás autentificado.";
         }
+            $tipo = getTipoUsuario($username);
+                if($tipo == 0){
+                    //dirigimos al usuario a su homepage.
+                    echo"<a href='UserHome.php'>Volver al menú</a>";
+                    
+                }else if($tipo == 1){
+                    //Dirigimos a la página de administrador
+                    echo"<a href='AdminHome.php'>Volver al menú</a>";
+                }
          ?>
-       <br/>
-       <a href="UserHome.php">Volver a la página del usuario</a>
+   
   </body>
 </html>
